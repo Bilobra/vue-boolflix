@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <HeaderComponent @searchInput="getInputFromHeader" @movies="getMovies" />
+    <HeaderComponent @searchInput="getInputFromHeader" @movies="getMovies"  @series="getSeriesTv" />
 
-    <MainComponent  :movies="headerMovies" />
+    <MainComponent  :movies="headerMovies" :series="headerSeries" />
 
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
     return {
       headerSearchInput: '',
       headerMovies: [],
+      headerSeries:[],
     }
   },
   methods: {
@@ -30,6 +31,10 @@ export default {
 
     getMovies(headerMovies) {
       this.headerMovies = headerMovies
+    },
+
+    getSeriesTv(headerSeries){
+      this.headerSeries = headerSeries
     }
   }
 }
