@@ -1,6 +1,11 @@
 .img-poster{
     opacity: 1;
     transition: all 400ms;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
     // overflow: hidden;
 }
 
@@ -28,6 +33,8 @@
 
 .p-relative:hover .card-info{
     opacity:1;
+    overflow-y: scroll;
+
 }
 .p-relative:hover .img-poster{
     opacity:0.3;

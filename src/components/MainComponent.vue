@@ -2,12 +2,12 @@
     <main>
         <h2>film</h2>
         <!-- FILM -->
-        <ul class="film-list" >
+        <ul class="film-list">
             <li class="film-wrapper" v-for="(film,i) in NewMovies" :key="i">
 
                 <ul class="p-relative">
                     <li class="img-poster">
-                        <img :src="film.poster" :alt="film.title" >
+                        <img :src="film.poster" :alt="film.title">
                     </li>
                     <li class="card-info">
                         <p><strong>Titolo: </strong> {{film.title}}</p>
@@ -16,15 +16,17 @@
                         <!-- <p>{{film.vote}}</p> -->
                         <p>
                             <strong>Voto: </strong>
-                            <font-awesome-icon  class="star" icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(film.vote)"
-                                :key="i" />
+                            <font-awesome-icon class="star" icon="fa-solid fa-star"
+                                v-for="(rating,i) in getStarVote(film.vote)" :key="i" />
 
                             <font-awesome-icon class="star" icon="fa-regular fa-star"
                                 v-for="(rating,i) in (5 -getStarVote(film.vote))" :key="i" />
                         </p>
+                        <p>{{film.overview}}</p>
+                        
 
                     </li>
-                    
+
                 </ul>
             </li>
         </ul>
@@ -68,15 +70,17 @@
                         <!-- <p>{{film.vote}}</p> -->
                         <p>
                             <strong>Voto: </strong>
-                            <font-awesome-icon  class="star" icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(stv.vote)"
-                                :key="i" />
+                            <font-awesome-icon class="star" icon="fa-solid fa-star"
+                                v-for="(rating,i) in getStarVote(stv.vote)" :key="i" />
 
                             <font-awesome-icon class="star" icon="fa-regular fa-star"
                                 v-for="(rating,i) in (5 -getStarVote(stv.vote))" :key="i" />
                         </p>
+                        <p>{{stv.overview}}</p>
+
 
                     </li>
-                    
+
                 </ul>
             </li>
         </ul>
@@ -106,6 +110,7 @@ export default {
                     lang: el.original_language,
                     poster: `${this.posterBaseUri}${el.poster_path}`,
                     vote: Math.round(el.vote_average / 2),
+                    overview: el.overview,
                 }
                 return newMovie
             })
@@ -118,6 +123,8 @@ export default {
                     lang: el.original_language,
                     poster: `${this.posterBaseUri}${el.poster_path}`,
                     vote: Math.round(el.vote_average / 2),
+                    overview: el.overview,
+
                 }
                 return NewSerie
             })
@@ -144,15 +151,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import '../style/Films.scss';
+@import '../style/Films.scss';
+
 main {
     margin: 2rem 0;
+    background-color: rgb(33, 32, 32);
 
     h2 {
         font-size: 4rem;
         text-align: center;
         margin: 1rem 0;
         text-transform: uppercase;
+        color: white
     }
 
     .film-list,
