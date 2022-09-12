@@ -2,9 +2,11 @@
     <header>
         <input type="text" placeholder="Cerca..." v-model="searchInput">
 
-        <button @click="getchMovies">
+        <!-- <button @click="getchMovies">
             Cerca
-        </button>
+        </button> -->
+
+        <input type="button" value="cerca" @click="getchMovies" >
 
 
     </header>
@@ -27,6 +29,8 @@ export default {
             api_key: '26178dc21df4958017d42bad7afceca4',
             // query : '',
             BASE_URI: 'https://api.themoviedb.org/3',
+
+
         }
     },
 
@@ -38,7 +42,7 @@ export default {
 
                 .then((res) => {
                     this.movies = res.data.results;
-                    this.$emit('searchInput', this.searchInput);
+                    // this.$emit('searchInput', this.searchInput);
                     this.$emit('movies', this.movies);
                     // this.$emit('series', this.series);
 
@@ -51,7 +55,7 @@ export default {
 
                 .then((res) => {
                     this.series = res.data.results;
-                    this.$emit('searchInput', this.searchInput);
+                    // this.$emit('searchInput', this.searchInput);
                     // this.$emit('movies', this.movies);
                     this.$emit('series', this.series);
 

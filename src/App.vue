@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <HeaderComponent @searchInput="getInputFromHeader" @movies="getMovies"  @series="getSeriesTv" />
+    <HeaderComponent @movies="getMovies" @series="getSeriesTv" />
 
-    <MainComponent  :movies="headerMovies" :series="headerSeries" />
+    <MainComponent :movies="headerMovies" :series="headerSeries" />
+
+   
 
   </div>
 </template>
@@ -19,24 +21,24 @@ export default {
   },
   data() {
     return {
-      headerSearchInput: '',
+      // headerSearchInput: '',
       headerMovies: [],
-      headerSeries:[],
+      headerSeries: [],
     }
   },
   methods: {
-    getInputFromHeader(input) {
-      this.headerSearchInput = input
-    },
+    // getInputFromHeader(input) {
+    //   this.headerSearchInput = input
+    // },
 
     getMovies(headerMovies) {
       this.headerMovies = headerMovies
     },
 
-    getSeriesTv(headerSeries){
+    getSeriesTv(headerSeries) {
       this.headerSeries = headerSeries
     }
-  }
+  },
 }
 </script>
 
