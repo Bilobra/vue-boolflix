@@ -3,29 +3,28 @@
         <h2>film</h2>
         <!-- FILM -->
         <ul class="film-list">
-            <li  class="film-wrapper" v-for="(film,i) in NewMovies" :key="i">
-                <div>{{film.title}}</div>
-                <ul>
-                    <li>
+            <li class="film-wrapper" v-for="(film,i) in NewMovies" :key="i">
+
+                <ul class="p-relative">
+                    <li class="img-poster">
                         <img :src="film.poster" :alt="film.title">
                     </li>
-                    <li>
-                        <div>{{film.original_title}}</div>
-                    </li>
-                    <li>
-                        <div>{{film.lang}}</div>
-                    </li>
-                    <li>
-                        <div>{{film.vote}}</div>
-                    </li>
-                    <li>
-                        <font-awesome-icon icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(film.vote)"
-                            :key="i" />
+                    <li class="card-info">
+                        <p><strong>Titolo: </strong> {{film.title}}</p>
+                        <p><strong>Titolo Originale: </strong> {{film.original_title}}</p>
+                        <p><strong>Lingua: </strong> {{film.lang}}</p>
+                        <!-- <p>{{film.vote}}</p> -->
+                        <p>
+                            <strong>Voto: </strong>
+                            <font-awesome-icon  class="star" icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(film.vote)"
+                                :key="i" />
 
-                        <font-awesome-icon icon="fa-regular fa-star" v-for="(rating,i) in (5 -getStarVote(film.vote))"
-                            :key="i" />
+                            <font-awesome-icon class="star" icon="fa-regular fa-star"
+                                v-for="(rating,i) in (5 -getStarVote(film.vote))" :key="i" />
+                        </p>
 
                     </li>
+                    
                 </ul>
             </li>
         </ul>
@@ -124,27 +123,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    main{
-        margin-top: 2rem;
-        h2 {
-            font-size: 4rem;
-            text-align: center;
-            margin: 1rem 0;
-            text-transform: uppercase;
-        }
+    @import '../style/Films.scss';
+main {
+    margin-top: 2rem;
 
-        .film-list, .series-list{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            max-width: 1024px;
-            margin:0 auto;
-            // margin-left: 1rem;
-            gap: 20px;
-        }
-
-        .film-wrapper, .series-wrapper{
-            width: calc(100% / 4 - 20px);
-        }
+    h2 {
+        font-size: 4rem;
+        text-align: center;
+        margin: 1rem 0;
+        text-transform: uppercase;
     }
+
+    .film-list,
+    .series-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 1024px;
+        margin: 0 auto;
+        // margin-left: 1rem;
+        gap: 20px;
+    }
+
+    .film-wrapper,
+    .series-wrapper {
+        width: calc(100% / 4 - 20px);
+    }
+}
 </style>

@@ -1,0 +1,38 @@
+.img-poster{
+    opacity: 1;
+    transition: all 400ms;
+    // overflow: hidden;
+}
+
+
+.p-relative{
+    position: relative;
+    // border-radius: 5px;
+}
+
+.card-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: all 500ms;
+    background-color: rgba(0, 0, 0, 0.785);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 20px;
+}
+
+.p-relative:hover .card-info{
+    opacity:1;
+}
+.p-relative:hover .img-poster{
+    opacity:0.3;
+}
+
+.star{
+    color: gold;
+}
