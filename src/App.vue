@@ -4,7 +4,7 @@
 
     <MainComponent :movies="headerMovies" :series="headerSeries" />
 
-   
+
 
   </div>
 </template>
@@ -43,5 +43,5 @@ export default {
 </script>
 
 <style lang="scss">
-
+@import './style/General.scss';
 </style>

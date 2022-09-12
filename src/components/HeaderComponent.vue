@@ -1,12 +1,21 @@
 <template>
     <header>
-        <input type="text" placeholder="Cerca..." v-model="searchInput">
+        <div class="logo-wrapper">
+            <a href="#" class="logo">
+                BOOLFLIX
+            </a>
+        </div>
 
-        <!-- <button @click="getchMovies">
-            Cerca
-        </button> -->
+        <div class="search-wrapper">
+            <input class="search-bar" type="text" placeholder="Cerca..." v-model="searchInput">
 
-        <input type="button" value="cerca" @click="getchMovies" >
+            <!-- <button @click="getchMovies">
+                Cerca
+            </button> -->
+
+            <input class="search-button" type="button" value="cerca" @click="getchMovies">
+
+        </div>
 
 
     </header>
@@ -71,5 +80,27 @@ export default {
 
 
 <style lang="scss" scoped>
+header {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    .logo-wrapper {
+        .logo {
+            font-size: 2rem;
+            color: red;
+            text-decoration: none;
+        }
+    }
+
+    .search-wrapper{
+        .search-bar, .search-button{
+            padding: 0.5rem 0.2rem;
+            margin: 0 0.5rem;
+            font-size: 1rem;
+        }
+    }
+}
 </style>

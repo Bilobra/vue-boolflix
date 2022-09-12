@@ -1,9 +1,9 @@
 <template>
     <main>
-        <h1>film</h1>
+        <h2>film</h2>
         <!-- FILM -->
-        <ul>
-            <li v-for="(film,i) in NewMovies" :key="i">
+        <ul class="film-list">
+            <li  class="film-wrapper" v-for="(film,i) in NewMovies" :key="i">
                 <div>{{film.title}}</div>
                 <ul>
                     <li>
@@ -29,10 +29,12 @@
                 </ul>
             </li>
         </ul>
+
+
         <!-- SERIE TV -->
-        <h1>serie tv</h1>
-        <ul>
-            <li v-for="(stv,i) in NewSeries" :key="i">
+        <h2>serie tv</h2>
+        <ul class="series-list">
+            <li class="series-wrapper" v-for="(stv,i) in NewSeries" :key="i">
                 <div>{{stv.name}}</div>
                 <ul>
                     <li>
@@ -48,10 +50,10 @@
                         <div>{{stv.vote}}</div>
                     </li>
                     <li>
-                        <font-awesome-icon icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(film.vote)"
+                        <font-awesome-icon icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(stv.vote)"
                             :key="i" />
 
-                        <font-awesome-icon icon="fa-regular fa-star" v-for="(rating,i) in (5 -getStarVote(film.vote))"
+                        <font-awesome-icon icon="fa-regular fa-star" v-for="(rating,i) in (5 - getStarVote(stv.vote))"
                             :key="i" />
 
                     </li>
@@ -122,5 +124,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    main{
+        margin-top: 2rem;
+        h2 {
+            font-size: 4rem;
+            text-align: center;
+            margin: 1rem 0;
+            text-transform: uppercase;
+        }
 
+        .film-list, .series-list{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1024px;
+            margin:0 auto;
+            // margin-left: 1rem;
+            gap: 20px;
+        }
+
+        .film-wrapper, .series-wrapper{
+            width: calc(100% / 4 - 20px);
+        }
+    }
 </style>
