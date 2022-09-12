@@ -19,9 +19,12 @@
                         <div>{{film.vote}}</div>
                     </li>
                     <li>
-                        <font-awesome-icon icon="fa-solid fa-star" />
-                        <font-awesome-icon icon="fa-regular fa-star" />
-                        
+                        <font-awesome-icon icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(film.vote)"
+                            :key="i" />
+
+                        <font-awesome-icon icon="fa-regular fa-star" v-for="(rating,i) in (5 -getStarVote(film.vote))"
+                            :key="i" />
+
                     </li>
                 </ul>
             </li>
@@ -43,6 +46,14 @@
                     </li>
                     <li>
                         <div>{{stv.vote}}</div>
+                    </li>
+                    <li>
+                        <font-awesome-icon icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(film.vote)"
+                            :key="i" />
+
+                        <font-awesome-icon icon="fa-regular fa-star" v-for="(rating,i) in (5 -getStarVote(film.vote))"
+                            :key="i" />
+
                     </li>
                 </ul>
             </li>
@@ -89,7 +100,22 @@ export default {
                 return NewSerie
             })
         }
-    }
+    },
+    methods: {
+        getStarVote(rating) {
+            if (rating <= 2) {
+                return 1;
+            } else if (rating > 2 && rating <= 4) {
+                return 2;
+            } else if (rating > 4 && rating <= 6) {
+                return 3;
+            } else if (rating > 6 && rating <= 8) {
+                return 4;
+            } else if (rating > 8 && rating <= 10) {
+                return 5;
+            }
+        }
+    },
 }
 
 
