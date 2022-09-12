@@ -2,12 +2,12 @@
     <main>
         <h2>film</h2>
         <!-- FILM -->
-        <ul class="film-list">
+        <ul class="film-list" >
             <li class="film-wrapper" v-for="(film,i) in NewMovies" :key="i">
 
                 <ul class="p-relative">
                     <li class="img-poster">
-                        <img :src="film.poster" :alt="film.title">
+                        <img :src="film.poster" :alt="film.title" >
                     </li>
                     <li class="card-info">
                         <p><strong>Titolo: </strong> {{film.title}}</p>
@@ -34,7 +34,7 @@
         <h2>serie tv</h2>
         <ul class="series-list">
             <li class="series-wrapper" v-for="(stv,i) in NewSeries" :key="i">
-                <div>{{stv.name}}</div>
+                <!-- <div>{{stv.name}}</div>
                 <ul>
                     <li>
                         <img :src="stv.poster" :alt="stv.name">
@@ -56,6 +56,27 @@
                             :key="i" />
 
                     </li>
+                </ul> -->
+                <ul class="p-relative">
+                    <li class="img-poster">
+                        <img :src="stv.poster" :alt="stv.name">
+                    </li>
+                    <li class="card-info">
+                        <p><strong>Titolo: </strong> {{stv.name}}</p>
+                        <p><strong>Titolo Originale: </strong> {{stv.original_name}}</p>
+                        <p><strong>Lingua: </strong> {{stv.language}}</p>
+                        <!-- <p>{{film.vote}}</p> -->
+                        <p>
+                            <strong>Voto: </strong>
+                            <font-awesome-icon  class="star" icon="fa-solid fa-star" v-for="(rating,i) in getStarVote(stv.vote)"
+                                :key="i" />
+
+                            <font-awesome-icon class="star" icon="fa-regular fa-star"
+                                v-for="(rating,i) in (5 -getStarVote(stv.vote))" :key="i" />
+                        </p>
+
+                    </li>
+                    
                 </ul>
             </li>
         </ul>
@@ -125,7 +146,7 @@ export default {
 <style lang="scss" scoped>
     @import '../style/Films.scss';
 main {
-    margin-top: 2rem;
+    margin: 2rem 0;
 
     h2 {
         font-size: 4rem;
