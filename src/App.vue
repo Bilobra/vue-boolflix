@@ -44,4 +44,9 @@ export default {
 
 <style lang="scss">
 @import './style/General.scss';
+#app{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 </style>

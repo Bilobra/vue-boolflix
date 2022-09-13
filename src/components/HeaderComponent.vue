@@ -14,7 +14,7 @@
             </button> -->
 
             <input class="search-button" type="button" value="cerca" @click="getchMovies">
-            
+
         </div>
 
 
@@ -81,25 +81,53 @@ export default {
 
 <style lang="scss" scoped>
 header {
-    background-color: #000;
-    padding: 1rem;
+    background-color: rgba(21, 20, 20, 0.896);
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .logo-wrapper {
         .logo {
-            font-size: 2rem;
-            color: red;
+            font-size: 4rem;
+
+            color: rgba(50, 3, 3, 0.776);
             text-decoration: none;
+            text-shadow: -5px 9px 0px #0000002b;
+            font-family: monospace;
+            font-weight: 600;
+
+            &:hover{
+                transform: scale(1.3);
+                color: white;
+                cursor: pointer;
+            }
         }
     }
 
-    .search-wrapper{
-        .search-bar, .search-button{
-            padding: 0.5rem 0.2rem;
-            margin: 0 0.5rem;
+    .search-wrapper {
+
+        .search-bar,
+        .search-button {
+            padding: 0.7rem 1rem;
+            margin: 0 0.9rem;
             font-size: 1rem;
+            border-radius: 4px;
+            border: none;
+            background-color: rgba(50, 3, 3, 0.776);
+            color: white;
+            box-shadow: -3px 5px 8px #0000002b;
+
+        }
+
+        .search-button {
+            padding: 0.7rem 1.5rem;
+            transition: all 200ms;
+            text-transform: uppercase;
+
+            &:hover {
+                transform: scale(1.2);
+            }
         }
     }
 }
