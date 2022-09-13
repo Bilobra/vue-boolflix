@@ -91,6 +91,7 @@ export default {
     data() {
         return {
             posterBaseUri: 'https://image.tmdb.org/t/p/w342',
+
             // flags: [],
         }
 
@@ -128,7 +129,13 @@ export default {
                 }
                 return NewSerie
             })
-        }
+        },
+        // getFullPath(posterPath) {
+        //     if (posterPath) {
+        //         return `${this.posterBaseUri}${el.poster_path}`
+        //     }
+        //     return `../assets/error-img.jpg`
+        // },
     },
     methods: {
         // getStarVote(rating) {

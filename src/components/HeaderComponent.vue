@@ -14,7 +14,7 @@
             </button> -->
 
             <input class="search-button" type="button" value="cerca" @click="getchMovies">
-
+            
         </div>
 
 
