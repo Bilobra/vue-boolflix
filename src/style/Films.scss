@@ -7,12 +7,16 @@
     // right: 0;
     // bottom: 0;
     // overflow: hidden;
+    
 }
 
 
 .p-relative{
     position: relative;
     // border-radius: 5px;
+    // display: flex;
+    // flex-direction: column;
+    // flex-wrap: wrap;
 }
 
 .card-info{
@@ -29,6 +33,7 @@
     flex-direction: column;
     gap: 1rem;
     padding: 20px;
+    
 }
 
 .p-relative:hover .card-info{
@@ -42,4 +47,8 @@
 
 .star{
     color: gold;
+}
+
+.film-list,.series-list{
+    padding: 5rem 0;
 }

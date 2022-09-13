@@ -16,14 +16,13 @@
                         <!-- <p>{{film.vote}}</p> -->
                         <p>
                             <strong>Voto: </strong>
-                            <font-awesome-icon class="star" icon="fa-solid fa-star"
-                                v-for="(rating,i) in getStarVote(film.vote)" :key="i" />
+                            <font-awesome-icon class="star" icon="fa-solid fa-star" v-for="n in film.vote" :key="n" />
 
-                            <font-awesome-icon class="star" icon="fa-regular fa-star"
-                                v-for="(rating,i) in (5 -getStarVote(film.vote))" :key="i" />
+                            <font-awesome-icon class="star" icon="fa-regular fa-star" v-for="n in (5 - film.vote)"
+                                :key="n + film.vote" />
                         </p>
                         <p>{{film.overview}}</p>
-                        
+
 
                     </li>
 
@@ -69,12 +68,11 @@
                         <p><strong>Lingua: </strong> {{stv.language}}</p>
                         <!-- <p>{{film.vote}}</p> -->
                         <p>
-                            <strong>Voto: </strong>
-                            <font-awesome-icon class="star" icon="fa-solid fa-star"
-                                v-for="(rating,i) in getStarVote(stv.vote)" :key="i" />
+                            <strong>Voto:</strong>
+                            <font-awesome-icon class="star" icon="fa-solid fa-star" v-for="n in stv.vote" :key="n" />
 
-                            <font-awesome-icon class="star" icon="fa-regular fa-star"
-                                v-for="(rating,i) in (5 -getStarVote(stv.vote))" :key="i" />
+                            <font-awesome-icon class="star" icon="fa-regular fa-star" v-for="n in (5 - stv.vote)"
+                                :key="n + stv.vote" />
                         </p>
                         <p>{{stv.overview}}</p>
 
@@ -93,6 +91,7 @@ export default {
     data() {
         return {
             posterBaseUri: 'https://image.tmdb.org/t/p/w342',
+            // flags: [],
         }
 
     },
@@ -111,6 +110,7 @@ export default {
                     poster: `${this.posterBaseUri}${el.poster_path}`,
                     vote: Math.round(el.vote_average / 2),
                     overview: el.overview,
+                    // flag: this.flags.includes(el.original_language)? require(`@/assets/${el.original_language}.png`) : null
                 }
                 return newMovie
             })
@@ -131,19 +131,19 @@ export default {
         }
     },
     methods: {
-        getStarVote(rating) {
-            if (rating <= 2) {
-                return 1;
-            } else if (rating > 2 && rating <= 4) {
-                return 2;
-            } else if (rating > 4 && rating <= 6) {
-                return 3;
-            } else if (rating > 6 && rating <= 8) {
-                return 4;
-            } else if (rating > 8 && rating <= 10) {
-                return 5;
-            }
-        }
+        // getStarVote(rating) {
+        //     if (rating <= 2) {
+        //         return 1;
+        //     } else if (rating > 2 && rating <= 4) {
+        //         return 2;
+        //     } else if (rating > 4 && rating <= 6) {
+        //         return 3;
+        //     } else if (rating > 6 && rating <= 8) {
+        //         return 4;
+        //     } else if (rating > 8 && rating <= 10) {
+        //         return 5;
+        //     }
+        // }
     },
 }
 
@@ -154,13 +154,13 @@ export default {
 @import '../style/Films.scss';
 
 main {
-    margin: 2rem 0;
+    padding: 2rem 0;
     background-color: rgb(33, 32, 32);
 
     h2 {
         font-size: 4rem;
         text-align: center;
-        margin: 1rem 0;
+        padding: 1rem 0;
         text-transform: uppercase;
         color: white
     }
