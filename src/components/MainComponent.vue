@@ -12,8 +12,12 @@
                     <li class="card-info">
                         <p><strong>Titolo: </strong> {{film.title}}</p>
                         <p><strong>Titolo Originale: </strong> {{film.original_title}}</p>
-                        <p><strong>Lingua: </strong> {{film.lang}}</p>
-                        <!-- <p>{{film.vote}}</p> -->
+                       
+                        <p>
+                            <span> <strong>Lingua: </strong> {{film.lang}} </span>
+                            <img  v-if="film.flag" :src="film.flag" alt="" class="img-flag">
+                        </p>
+                        
                         <p>
                             <strong>Voto: </strong>
                             <font-awesome-icon class="star" icon="fa-solid fa-star" v-for="n in film.vote" :key="n" />
@@ -65,8 +69,11 @@
                     <li class="card-info">
                         <p><strong>Titolo: </strong> {{stv.name}}</p>
                         <p><strong>Titolo Originale: </strong> {{stv.original_name}}</p>
-                        <p><strong>Lingua: </strong> {{stv.language}}</p>
-                        <!-- <p>{{film.vote}}</p> -->
+                        <p>
+                            <span> <strong>Lingua: </strong> {{stv.lang}} </span>
+                            <img  v-if="stv.flag" :src="stv.flag" alt="" class="img-flag">
+                        </p>
+
                         <p>
                             <strong>Voto:</strong>
                             <font-awesome-icon class="star" icon="fa-solid fa-star" v-for="n in stv.vote" :key="n" />
@@ -92,7 +99,7 @@ export default {
         return {
             posterBaseUri: 'https://image.tmdb.org/t/p/w342',
 
-            // flags: [],
+            flags: ['it', 'en', 'fr','sh','de','ja'],
         }
 
     },
@@ -111,7 +118,7 @@ export default {
                     poster: `${this.posterBaseUri}${el.poster_path}`,
                     vote: Math.round(el.vote_average / 2),
                     overview: el.overview,
-                    // flag: this.flags.includes(el.original_language)? require(`@/assets/${el.original_language}.png`) : null
+                    flag: this.flags.includes(el.original_language) ? require(`@/assets/${el.original_language}.png`) : null
                 }
                 return newMovie
             })
@@ -125,6 +132,8 @@ export default {
                     poster: `${this.posterBaseUri}${el.poster_path}`,
                     vote: Math.round(el.vote_average / 2),
                     overview: el.overview,
+                    flag: this.flags.includes(el.original_language) ? require(`@/assets/${el.original_language}.png`) : null
+
 
                 }
                 return NewSerie
@@ -163,6 +172,7 @@ export default {
 main {
     padding: 2rem 0;
     background-color: rgb(33, 32, 32);
+    
 
     h2 {
         font-size: 4rem;
@@ -186,6 +196,10 @@ main {
     .film-wrapper,
     .series-wrapper {
         width: calc(100% / 4 - 20px);
+    }
+    .img-flag{
+        width: 20px;
+        height: 15px;
     }
 }
 </style>
