@@ -37,6 +37,8 @@
     flex-direction: column;
     gap: 1rem;
     padding: 20px;
+    font-family: monospace;
+    border-radius: 15px;
     
 }
 
@@ -55,4 +57,9 @@
 
 .film-list,.series-list{
     padding: 5rem 0;
+}
+#img-poster {
+    border-radius: 15px;
+    overflow: hidden;
+    object-fit: contain;
 }

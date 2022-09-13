@@ -6,7 +6,7 @@
             <li class="film-wrapper" v-for="(film,i) in NewMovies" :key="i">
 
                 <ul class="p-relative">
-                    <li class="img-poster">
+                    <li id="img-poster">
                         <img :src="film.poster" :alt="film.title">
                     </li>
                     <li class="card-info">
@@ -41,7 +41,7 @@
             <li class="series-wrapper" v-for="(stv,i) in NewSeries" :key="i">
 
                 <ul class="p-relative">
-                    <li class="img-poster">
+                    <li id="img-poster">
                         <img :src="stv.poster" :alt="stv.name">
                     </li>
                     <li class="card-info">
@@ -77,7 +77,7 @@ export default {
         return {
             posterBaseUri: 'https://image.tmdb.org/t/p/w342',
 
-            flags: ['it', 'en', 'fr', 'sh', 'de', 'ja'],
+            flags: ['it', 'en', 'fr', 'sh', 'de', 'ja','es'],
 
             imgPlaceHolder: require('../assets/error-img.jpg'),
         }
@@ -186,11 +186,7 @@ main {
         
 
 
-        .img-poster,.card-info {
-            border-radius: 15px;
-            overflow: hidden;
-            object-fit: contain;
-        }
+       
     }
 
     .img-flag {
