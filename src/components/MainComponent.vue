@@ -152,7 +152,7 @@ main {
         font-size: 3rem;
         margin: 0 auto;
         text-align: center;
-        padding: 1rem 0;
+        // padding: 1rem 0;
         text-transform: uppercase;
         color: white;
         font-family: monospace;
@@ -160,11 +160,11 @@ main {
         text-shadow: -9px 11px 3px black;
         transition: all 1s;
 
-        &:hover{
+        &:hover {
             transform: rotateX(360deg);
-            color:rgba(239, 10, 10, 0.776);
+            color: rgba(239, 10, 10, 0.776);
             text-shadow: -9px 11px 3px rgba(0, 0, 0, 0.215);
-            
+
 
         }
     }
@@ -183,6 +183,14 @@ main {
     .film-wrapper,
     .series-wrapper {
         width: calc(100% / 4 - 20px);
+        
+
+
+        .img-poster,.card-info {
+            border-radius: 15px;
+            overflow: hidden;
+            object-fit: contain;
+        }
     }
 
     .img-flag {
